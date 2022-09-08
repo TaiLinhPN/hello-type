@@ -10,10 +10,12 @@ import {
 import React, { useState } from "react";
 import WellcomeMessage from "../WellcomeMessage";
 
+
+
 const Navbar = () => {
   const [position, setPosition] = useState("Full-stack Developer");
 
-  const onPositionChange = (e :SelectChangeEvent<string>) => {
+  const onPositionChange = (e :any) => {
     setPosition(e.target.value);
   };
   return (
