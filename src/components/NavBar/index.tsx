@@ -15,15 +15,13 @@ import { ProgressContext } from "../../contexts/ProgressContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import WellcomeMessage from "../WellcomeMessage";
 
-<<<<<<< HEAD
-=======
+
 const whiteColor = {
   color: "white",
 };
-const whiteBackground = {
+const whiteBackground = {                                                                   
   backgroundColor: "white",
 };
->>>>>>> 14fd273c9568ccd2f75b8c5d2f6303e559f61138
 
 
 const Navbar = () => {
