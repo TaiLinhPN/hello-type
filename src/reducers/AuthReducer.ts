@@ -1,3 +1,4 @@
+
 import { AuthActionTpye } from "./type";
 
 type AuthAction = {

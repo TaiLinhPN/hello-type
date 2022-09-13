@@ -15,16 +15,18 @@ import { ProgressContext } from "../../contexts/ProgressContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import WellcomeMessage from "../WellcomeMessage";
 
+
 const whiteColor = {
   color: "white",
 };
-const whiteBackground = {
+const whiteBackground = {                                                                   
   backgroundColor: "white",
 };
 
 const Navbar = () => {
   const [position, setPosition] = useState("Full-stack Developer");
   const [time, setTime] = useState("");
+
 
   useEffect(() => {
     const timer = setInterval(() => {
