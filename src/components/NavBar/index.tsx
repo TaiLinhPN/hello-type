@@ -22,7 +22,6 @@ const whiteBackground = {
   backgroundColor: "white",
 };
 
-
 const Navbar = () => {
   const [position, setPosition] = useState("Full-stack Developer");
   const [time, setTime] = useState("");
@@ -67,13 +66,7 @@ const Navbar = () => {
                 <Typography>{time}</Typography>
               </Box>
               <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
-                <Button
-                  sx={{
-                    color: "white",
-                    background: "rgb(57, 133, 209);",
-                    mr: 1,
-                  }}
-                >
+                <Button variant="contained" sx={{ mr: 1 }}>
                   Login
                 </Button>
                 <FormControl>

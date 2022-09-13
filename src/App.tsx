@@ -6,13 +6,14 @@ import React, { useState } from "react";
 import "./App.scss";
 import BtnTheme from "./components/BtnTheme";
 import Navbar from "./components/NavBar";
+import Tasks from "./components/Tasks";
 import ProgressContextProvider from "./contexts/ProgressContext";
+import TaskContextProvider from "./contexts/TaskContext";
 import ThemeContextProvider from "./contexts/ThemeContext";
 
 function App() {
   const [themee, setThemem] = useState(false)
 
-  console.log(themee);
   const changeTheme = () => {
     setThemem(!themee);
     
@@ -34,18 +35,22 @@ function App() {
   }
   return (
     <div>
+          <TaskContextProvider>
       <ThemeProvider theme={darkTheme}>
         <ThemeContextProvider>
-          <ProgressContextProvider>
-            <Box>
-              <Navbar />
-              <div>he looo</div>
-              <Fab sx={themeBtn} onClick={changeTheme}>Theme</Fab>
-            <BtnTheme/>
-            </Box>
-          </ProgressContextProvider>
+            <ProgressContextProvider>
+              <Box>
+                <Navbar />
+                <Tasks/>
+                <Fab sx={themeBtn} onClick={changeTheme}>
+                  Theme
+                </Fab>
+                <BtnTheme />
+              </Box>
+            </ProgressContextProvider>
         </ThemeContextProvider>
       </ThemeProvider>
+          </TaskContextProvider>
     </div>
   );
 }
