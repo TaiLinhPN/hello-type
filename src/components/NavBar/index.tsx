@@ -10,24 +10,25 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 import { ProgressContext } from "../../contexts/ProgressContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import Login from "../Login";
 import WellcomeMessage from "../WellcomeMessage";
-
 
 const whiteColor = {
   color: "white",
 };
-const whiteBackground = {                                                                   
+const whiteBackground = {
   backgroundColor: "white",
 };
 
 const Navbar = () => {
   const [position, setPosition] = useState("Full-stack Developer");
   const [time, setTime] = useState("");
-
-
+  const [loginOnpen, setLoginOpen] = useState(false);
+const {authInfo, toggleAuth} = useContext(AuthContext)
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(new Date().toLocaleString());
@@ -68,8 +69,16 @@ const Navbar = () => {
                 <Typography>{time}</Typography>
               </Box>
               <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
-                <Button variant="contained" sx={{ mr: 1 }}>
-                  Login
+                <Button
+                  variant="contained"
+                  sx={{ mr: 1 }}
+                  onClick={
+                    authInfo.isAuthenticated
+                      ? () => toggleAuth('')
+                      : () => setLoginOpen(true)
+                  }
+                >
+                  {authInfo.isAuthenticated ? "logout" : "login"}
                 </Button>
                 <FormControl>
                   <Select
@@ -91,6 +100,7 @@ const Navbar = () => {
               </Box>
             </Box>
           </Box>
+          <Login isOpen={loginOnpen} handleClose={setLoginOpen} />
         </Box>
       </Toolbar>
     </AppBar>

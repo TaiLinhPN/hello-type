@@ -74,7 +74,6 @@ const AuthContextProvider = ({ children }: AuthContextProps) => {
   const [authInfo, dispatch] = useReducer(authReducer, authDefault);
 
   const toggleAuth = (username: string) => {
-    console.log(username);
     dispatch({ type: TOGGLE_AUTH, payload: username });
   };
 
